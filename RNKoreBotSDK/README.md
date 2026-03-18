@@ -107,6 +107,16 @@ export default App;
 
 ## 📦 Installation
 
+### 🔧 Apply patches before running the app
+
+**After `npm install`, run patches before you build or run the application** (iOS, Android, or Metro). This applies fixes to dependencies (e.g. `react-native-svg`) and community CLI helpers.
+
+```bash
+npm run patches
+```
+
+> **Note:** `postinstall` normally runs this automatically. Run `npm run patches` manually if you used `--ignore-scripts`, if patches failed during install, or after changing `node_modules`.
+
 ### Step 1: Install the Main Package
 
 ```bash
@@ -634,11 +644,17 @@ The SDK includes voice recognition and text-to-speech capabilities:
 
 Explore the complete implementation in the `/SampleApp` directory:
 
+From the **SDK repository root** (`RNKoreBotSDK`), install and apply patches first, then open the sample app:
+
 ```bash
+npm install
+npm run patches             # required before running the app
 cd SampleApp
 npm install
 npx react-native run-ios    # or run-android
 ```
+
+The `patches` script lives in the SDK root, not inside `SampleApp`.
 
 ### 📋 Key Example Files
 
@@ -658,11 +674,13 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 git clone https://github.com/your-repo/react-native-kore-bot-sdk.git
 cd react-native-kore-bot-sdk
 npm install
+npm run patches         # required before running the app or SampleApp
 ```
 
 ### 🚀 Quick Commands
 
 ```bash
+npm run patches       # Apply dependency patches (after npm install)
 npm run test          # Run tests
 npm run lint          # Lint code
 npm run build         # Build library
