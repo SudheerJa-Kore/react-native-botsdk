@@ -33,6 +33,7 @@
         "test": "jest",
         "build": "tsup && cp -r bot-sdk/assets/images dist/ && cp -r bot-sdk/assets/placeholder dist/",
         "prepublishOnly": "npm run build",
+        "patches": "patch-package && node patch-community-cli.js",
         "postinstall": "patch-package && node patch-community-cli.js"
     },
     "peerDependencies": {
@@ -78,7 +79,7 @@
         "react-native-vector-icons": "^10.2.0",
         "react-native-video": "^6.16.1",
         "reactotron-react-native": "^5.1.13",
-        "rn-kore-bot-socket-lib-v77": "^0.0.7"
+        "rn-kore-bot-socket-lib-v77": "^0.0.8"
     },
     "devDependencies": {
         "@babel/core": "^7.25.2",
