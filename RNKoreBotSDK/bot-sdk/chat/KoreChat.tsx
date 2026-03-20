@@ -2655,8 +2655,11 @@ export default class KoreChat extends React.Component<
       const isWhiteStatus = isWhiteStatusBar(bgColor);
       const isBlackStatus = isBlackStatusBar(bgColor);
 
+      const themeForProvider =
+        this.state.themeData ?? this.state.activetheme ?? null;
+
       return (
-        <ThemeProvider>
+        <ThemeProvider theme={themeForProvider}>
           <Wrapper style={styles.safeArea}>
             <View
               style={[styles.container, {flexDirection: 'column'}]}
@@ -3015,7 +3018,7 @@ KoreChat.defaultProps = {
   onPressAvatar: null,
   onLongPressAvatar: null,
   renderUsernameOnMessage: false,
-  renderAvatarOnTop: false,
+  renderAvatarOnTop: true,
   onLongPress: null,
   renderMessage: null,
   renderMessageText: null,
