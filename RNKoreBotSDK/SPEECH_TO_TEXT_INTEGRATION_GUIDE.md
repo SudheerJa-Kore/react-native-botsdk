@@ -26,7 +26,6 @@ The package requires several peer dependencies. Install them:
 npm install @react-native-async-storage/async-storage
 npm install @react-native-community/netinfo
 npm install @react-native-documents/picker
-npm install @react-native-voice/voice
 npm install react-native-bootsplash
 npm install react-native-fs
 npm install react-native-gesture-handler
@@ -35,6 +34,13 @@ npm install react-native-reanimated
 npm install react-native-safe-area-context
 npm install react-native-screens
 npm install react-native-svg
+```
+
+Voice recognition is optional. Only install the iOS voice dependency when the
+host application wants speech-to-text and branding enables the microphone:
+
+```bash
+npm install @react-native-voice/voice
 ```
 
 ### Step 3: Configure React Native Autolinking
@@ -357,7 +363,8 @@ The package includes only **one** podspec file: `react-native-rn-kore-bot-sdk.po
 Before considering the integration complete, verify:
 
 - [ ] Package is installed: `npm list rn-kore-bot-sdk-v79`
-- [ ] All peer dependencies are installed
+- [ ] All required peer dependencies are installed
+- [ ] If voice is enabled: `@react-native-voice/voice` is installed and the iOS pod is present
 - [ ] `react-native.config.js` is created and configured
 - [ ] Android permissions are added to AndroidManifest.xml
 - [ ] Android native modules are copied to correct location

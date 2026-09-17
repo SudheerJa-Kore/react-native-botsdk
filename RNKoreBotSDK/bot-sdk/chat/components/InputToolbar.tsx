@@ -20,6 +20,7 @@ import FadeInToTop from '../../animation/FadeInToTop';
 import {MIN_TOOL_BAR_HEIGHT} from '../../constants/Constant';
 import WaveFormView from '../../components/WaveFormView';
 import VoiceHelper from '../../utils/VoiceRecorder';
+import {isNativeVoiceModuleAvailable} from '../../utils/VoiceNativeModule';
 type SpeechErrorEvent = any;
 import {isIOS} from '../../utils/PlatformCheck';
 
@@ -225,9 +226,12 @@ export default class InputToolbar extends React.Component<
   };
 
   private isVoiceEnabledForTheme = (theme: IThemeType | undefined) => {
-    // Voice is optional. An absent branding value must not cause a native
-    // module to be loaded, especially in clients whose build has no voice pod.
-    return theme?.v3?.footer?.buttons?.microphone?.show === true;
+    // Voice is optional. Branding can enable it only when the host app also
+    // compiled the platform-specific native voice module.
+    return (
+      theme?.v3?.footer?.buttons?.microphone?.show === true &&
+      isNativeVoiceModuleAvailable()
+    );
   };
 
   private initVoiceHelper = () => {
