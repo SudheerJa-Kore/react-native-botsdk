@@ -17,7 +17,7 @@ export const botConfig_f: BotConfigModel = {
 export const botConfig: BotConfigModel = {
   botName: 'SDK',
   botId: 'PLEASE_ENTER_BOT_ID',
-  clientId: 'PLEASE_ENTER_CLIENT_ID',,
+  clientId: 'PLEASE_ENTER_CLIENT_ID',
   clientSecret: 'PLEASE_ENTER_CLIENT_SECRET',
   botUrl: 'PLEASE_ENTER_SERVER_URL',
   identity: '1234567890',
