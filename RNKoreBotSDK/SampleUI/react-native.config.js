@@ -1,6 +1,6 @@
 module.exports = {
   dependencies: {
-    'rn-kore-bot-sdk-v79': {
+    'rn-kore-bot-sdk-v79-test': {
       platforms: {
         android: null, // Disable Android autolinking - we'll integrate manually
         ios: {

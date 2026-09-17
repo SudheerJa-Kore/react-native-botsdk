@@ -1,4 +1,4 @@
-declare module 'rn-kore-bot-sdk-v79' {
+declare module 'rn-kore-bot-sdk-v79-test' {
   import { ReactNode } from 'react';
   import { ViewStyle } from 'react-native';
 
