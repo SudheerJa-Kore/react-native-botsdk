@@ -19,6 +19,14 @@ cd ios && pod install && cd ..
 
 The SDK uses native dependencies for networking, media, documents, permissions, and voice features. Follow each dependency's native setup instructions, then rebuild the application. The host application must use a React Native 0.79-compatible Android Gradle Plugin, Gradle, Kotlin, Java, and compile SDK configuration.
 
+Android voice recognition is autolinked from the SDK. Do not set
+`rn-kore-bot-sdk-v79-test.platforms.android` to `null`, copy the SDK's Java
+files into the app, or manually add `VoiceRecognitionPackage()`; those steps
+prevent autolinking or can register the native module twice. If the log shows
+`[CustomVoiceRecognition] Module not available or not on Android`, remove that
+override, run `npx react-native config` to verify `new VoiceRecognitionPackage()`
+is present, then clean and rebuild the Android app.
+
 The root application must be wrapped in `GestureHandlerRootView` when using gesture-handler-based features.
 
 ## Basic usage
